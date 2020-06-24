@@ -5,8 +5,9 @@ import {
 } from "react-icons/fa";
 import {buscarTexto} from "../../helpers/generalHelper";
 
-const FilesDropzone = ({archivos, onChange, size = 'lg', multiple = false}) => {
+const FilesDropzone = ({archivos = null, onChange, size = 'lg', multiple = false}) => {
     const onChangeFile = (acceptedFiles) => {
+        console.log('todo bien')
         onChange(acceptedFiles)
     }
     return (
@@ -93,9 +94,8 @@ const FilesDropzone = ({archivos, onChange, size = 'lg', multiple = false}) => {
                                     </ul>
                                 </div> :
                                 <div>
-
                                         <div className="px-2">
-                                            {archivos.name}
+                                            {buscarTexto(archivos , ['name'])}
                                         </div>
                                 </div>
                         }
