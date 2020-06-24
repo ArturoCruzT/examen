@@ -7,14 +7,8 @@ import { trans } from "../../services/lang.service";
 
 export const ModalLogin = ({ ver_modal, setVerModalCh, lang, lang_ok, permisos_ok, setPermisosOk }) => {
     //|------State------|//
-    const [username, setUsername] = useState('');
-    const [username_input, setUsernameInput] = useState(null);
-    const [password, setPassword] = useState('');
-    const [password2, setPassword2] = useState('');
-    const [single_or_multi, setSingleOrMulti] = useState('');
-    const [trabajadores, setTrabajadores] = useState([]);
-    const [requiere_segundo_paso, setRequiereSegundoPaso] = useState(false);
-    const [trabajador_login, setTrabajadorLogin] = useState({});
+    const [correo, setCorreo] = useState('');
+    const [passsword, setPassword] = useState('');
 
     //|-------Actions-------|//
     const attempLogin = () => {
