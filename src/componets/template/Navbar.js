@@ -29,12 +29,12 @@ function Navbar({ lang, lang_ok, permisos_ok, setPermisosOk }) {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav mr-auto">
                         <NavLink className="nav-item px-1"
-                                 to="/recepcionMateriaPrima"><FaUser />
+                                 to="/usuario"><FaUser />
                             <span className="ml-2">{trans('navbar.usuario')}</span>
                         </NavLink>
                     <li className="nav-item">
                         <NavLink className="nav-item px-1"
-                                 to="/recepcionMateriaPrima"><FaUserSecret />
+                                 to="/rol"><FaUserSecret />
                             <span className="ml-2">{trans('navbar.rol')}</span>
                         </NavLink>
                     </li>
