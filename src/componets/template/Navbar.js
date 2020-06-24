@@ -5,6 +5,7 @@ import {FaHome, FaUser, FaUserSecret} from "react-icons/fa";
 import Avatar from "./Avatar";
 import $ from 'jquery';
 import { trans } from '../../services/lang.service'
+import {ModalLogin} from "./ModalLogin";
 
 
 function Navbar({ lang, lang_ok, permisos_ok, setPermisosOk }) {
@@ -61,7 +62,7 @@ function Navbar({ lang, lang_ok, permisos_ok, setPermisosOk }) {
                         </li> : ''
                 </ul>
             </div>
-
+            <ModalLogin />
         </nav>
     );
 };

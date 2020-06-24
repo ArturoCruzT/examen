@@ -27,17 +27,11 @@ export const attemp = (correo, password) => {
 };
 
 
-export const creaSesion = (token) => {
-    setLS('token', token);
+export const creaSesion = () => {
     window.location.reload();
 };
 
 export const cerrarSesion = () => {
-    limpiarLs('token');
+
 };
 
-
-export const isLogged = () => {
-    let token = getLS('token');
-    return typeof token !== 'undefined' && token !== null;
-};
