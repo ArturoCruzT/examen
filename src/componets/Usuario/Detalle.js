@@ -30,8 +30,8 @@ const Datalle = ({usuario, actualizaUsuario, roles, onclick}) => {
             </div>
             <div>
                 <strong className="text-nowrap">{trans('usuario.email')}:</strong>
-                <input className="input-sm" value={usuario.correo}
-                       onChange={e => actualizaUsuario({correo: e.target.value})}/>
+                <input className="input-sm" value={usuario.email}
+                       onChange={e => actualizaUsuario({email: e.target.value})}/>
             </div>
             <div>
                 <strong className="text-nowrap">{trans('usuario.rol')}:</strong>

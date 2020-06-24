@@ -30,7 +30,7 @@ const Registros = ({usuarios, actualizaUsuario, eliminarRegistro, usuarioSelecci
         <tr className="cursor"  key={usuario.id}>
             <td onClick={()=>actualizaUsuario(usuario)}>{usuario.nombre}  {usuario.apellidos}</td>
             <td onClick={()=>actualizaUsuario(usuario)}>{usuario.nombre_usuario} </td>
-            <td onClick={()=>actualizaUsuario(usuario)}>{usuario.correo} </td>
+            <td onClick={()=>actualizaUsuario(usuario)}>{usuario.email} </td>
             <td onClick={()=>actualizaUsuario(usuario)}>{usuario.rol.nombre} </td>
             <td><button className="btn btn-outline-danger" onClick={()=>eliminarRegistro(usuario)}><FaTrash/> </button></td>
             <td>

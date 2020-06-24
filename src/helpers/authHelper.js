@@ -1,25 +1,28 @@
 import * as lang from '../lang/index';
 import API from '../api/axios';
 import {cargando, cerrarAlert, ocultableDanger} from "./swalHelper";
+import {setLS} from "./localstorage";
 
-export const attemp = (correo, password) => {
+export const attemp = (email, password) => {
     cargando();
-    return API.post('iniciarSesion', {correo, password})
+    return API.post('inicioSesion', {email, password})
         .then((res) => {
             cerrarAlert();
+            creaSesion();
             return res.data;
         }).catch((err) => {
+            console.log(err)
             cerrarAlert();
             switch (err.response.status) {
                 case 401:
-                    ocultableDanger(lang.get('navbar.sinUsuarioAsignado'), lang.get('navbar.errorAuth'));
+                    ocultableDanger('Sin usuario','usuario');
                     break;
                 case 403:
-                    ocultableDanger(lang.get('navbar.credencialesIncorrectas'), lang.get('navbar.errorAuth'));
+                    ocultableDanger('credenciales incorrectas', 'error de autenticacion');
                     break;
                 case 500:
                 default:
-                    ocultableDanger(lang.get('navbar.errorDesconocido'), lang.get('navbar.errorAuth'));
+                    ocultableDanger('Error desconocido', 'Error de autenticacion');
                     break;
             }
             return err.response;
@@ -28,7 +31,15 @@ export const attemp = (correo, password) => {
 
 
 export const creaSesion = () => {
-    window.location.reload();
+    return API.post('getUser')
+        .then((res) => {
+            console.log(res);
+          setLS('user', res);
+        }).catch((err) => {
+            console.log(err)
+            cerrarAlert();
+        });
+
 };
 
 export const cerrarSesion = () => {
