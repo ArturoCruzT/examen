@@ -7,15 +7,15 @@ import {trans} from "../../services/lang.service";
 
 export const ModalLogin = () => {
     //|------State------|//
-    const [correo, setCorreo] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [usuario, setUsuario] = useState({});
 
 
     //|-------Actions-------|//
     const attempLogin = () => {
-        if (correo && password) {
-            attemp(correo, password).then(data => {
+        if (email && password) {
+            attemp(email, password).then(data => {
                 console.log(data);
             });
         }
@@ -43,7 +43,7 @@ export const ModalLogin = () => {
                     </div>
                     <div className="modal-body">
                         <div className="d-flex flex-column py-1">
-                            <Credenciales setCorreo={setCorreo}
+                            <Credenciales setEmail={setEmail}
                                           setPassword={setPassword}
                                           handleKeyUp={handleKeyUp}
                             />
@@ -62,7 +62,7 @@ export const ModalLogin = () => {
 };
 
 //|------SubCompoenntes------|//
-const Credenciales = ({setCorreo, setPassword, handleKeyUp}) => {
+const Credenciales = ({setEmail, setPassword, handleKeyUp}) => {
     return (
         <div>
             <div className="text-center">{trans('navbar.insIniciarSesion')}</div>
@@ -71,7 +71,8 @@ const Credenciales = ({setCorreo, setPassword, handleKeyUp}) => {
                        id="username"
                        onKeyUp={handleKeyUp}
                        autoFocus={true}
-                       onChange={(e) => setCorreo(e.target.value)}
+                       type="email"
+                       onChange={(e) => setEmail(e.target.value)}
                        placeholder={trans('navbar.username')}
                 />
                 <input type="password"
